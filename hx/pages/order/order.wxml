@@ -1,0 +1,136 @@
+<view class="divAddress">
+  <view class="divPosition">
+    <image src="/imgs/position.png"></image>
+  </view>
+  <navigator url="/pkgD/pages/take_address/take_address" class="divAdd" open-type="navigate">></navigator>
+  <!-- 有收货地址 -->
+  <view wx:for="{{address}}" wx:key="index" class="viewAddress">
+    <view class="have_address">{{item.address1}}</view>
+    <view class="detaddress">{{item.detaddress1}}</view>
+    <view class="address_info">
+      <view>{{item.customName}}</view>
+      <view class="phone">{{item.telphone}}</view>
+    </view>
+  </view>
+  <!-- 没有收货地址 -->
+  <view class="no_address1">{{msg}}</view>
+  <view class="no_address">{{msg1}}</view>
+</view>
+<!-- 所买商品信息 -->
+<view class="goods_order">
+  <view class="goods_title">红星小卖部</view>
+<!-- 立即购买 -->
+<block hidden="{{isShow2}}">
+  <view class="goods_list" >
+    <view class="goods_pic">
+      <image src="/imgs/{{order_pic}}"></image>
+    </view>
+    <view class="goods_name">
+      <view>{{order_productName}}</view>
+      <view class="priceFont"><text>￥</text>{{order_price}}</view>
+    </view>
+    <view class="goods_count"><text></text>{{order_count}}</view>
+  </view>
+</block>
+<!--从购物车结算  -->
+<view class="buy_list"  wx:if="{{isShow1}}">
+<view class="goods_list"  wx:for="{{orderBuy}}" wx:key="index">
+    <view class="goods_pic">
+      <image src="/imgs/{{item.imgUrl}}"></image>
+    </view>
+    <view class="goods_name">
+      <view>{{item.productName}}</view>
+      <view class="priceFont">￥{{item.outPrice2}}</view>
+    </view>
+    <view class="goods_count">x{{item.Count1}}</view>
+  </view></view>
+<!-- 配送方式 -->
+  <view class="goods_send buy_send">
+    <view>配送方式</view>
+    <view>商家配送</view>
+  </view>
+  <view class="leave_msg">
+    <view>留言</view>
+    <view><input type="text" placeholder="给卖家留言(50字以内)" value="{{leaveMsg}}" bindinput="gotoLeave"/></view>
+  </view>
+</view>
+<view class="divPay">
+  <view class="divTotal">
+    <view>商品金额</view>
+    <view>￥{{total_price}}</view>
+  </view>
+  <view class="divSend">
+    <view>运费</view>
+    <view>￥0</view>
+  </view>
+  <view class="divDiscount">
+    <view>优惠券</view>
+    <view bindtap="gotoDiscount" class="use_discount"><text>{{msg2}}</text>></view>
+  </view>
+  <view class="pay_msg">
+    <view>合计:<text>￥{{total_price1}}</text></view>
+  </view>
+</view>
+<!-- 支付方式 -->
+<view>
+  <view class="divMethod">
+    <view>支付方式</view>
+    <view>线上支付</view>
+  </view>
+</view>
+<!-- 提交订单 -->
+<view class="pay_total">
+  <view>合计:<text>￥{{total_price1}}</text></view>
+  <view><button bindtap="gotoPay" style="{{state==1?'background-color:rgb(7,193,96);color:white;':'background-color:rgba(117, 113, 113,0.5);color:white;'}}" disabled="{{state1}}" data-step="{{10}}">提交订单</button></view>
+</view>
+<!-- 优惠券 -->
+<van-popup show="{{ show }}" round position="bottom" custom-style="height:60%;background-color: rgb(246, 246, 246)" bind:close="onClose">
+  <view class="discount_title">优惠券</view>
+  <view>
+    <van-tabs active="{{ active }}" title-active-color="rgb(255, 96, 0)">
+      <van-tab title="可用优惠券" >
+        <view wx:for="{{discount}}" wx:key="index" class="viewDiscount">
+         <view class="dis_price">
+          <view><text>￥{{item.discount_price}}</text></view>
+          <view class="threshod">满{{item.threshold}}元使用</view>
+          <view class="limit_price">{{item.limit_price}}</view>
+          </view>
+         <view class="dis_name">
+          <view class="discount_name">{{item.discount_name}}</view>
+          <view class="end_time">有效期至{{item.end_time}}</view>
+          <view class="discount_receive"><button bindtap="receive"    disabled="{{msg10}}">{{msg8}}</button></view>
+          </view>
+        </view>
+        <view class="no_discount">{{msg3}}</view>
+        <view class="confirm_receive">{{msg6}}</view>
+        <view class="confirm_use"><button bindtap="gotouse" disabled="{{msg7}}">{{msg9}}</button></view>
+      </van-tab>
+      <van-tab title="不可用优惠券">
+        <view wx:for="{{lose_discount}}" wx:key="index" class="viewDiscount">
+         <view class="dis_price">
+          <view><text>￥{{item.discount_price}}</text></view>
+          <view class="threshod">满{{item.threshold}}元使用</view>
+          <view class="limit_price">{{item.limit_price}}</view>
+          </view>
+         <view class="dis_name">
+          <view class="discount_name">{{item.discount_name}}</view>
+          <view class="end_time">有效期至{{item.end_time}}</view>
+          <view class="dissatisfy">{{msg4}}</view>
+          </view>
+        </view>
+        <view wx:for="{{discount2}}" wx:key="index" class="viewDiscount">
+         <view class="dis_price">
+          <view><text>￥{{item.discount_price}}</text></view>
+          <view class="threshod">满{{item.threshold}}元使用</view>
+          <view class="limit_price">{{item.limit_price}}</view>
+          </view>
+         <view class="dis_name">
+          <view class="discount_name">{{item.discount_name}}</view>
+          <view class="end_time">有效期至{{item.end_time}}</view>
+            <view class="dissatisfy">{{msg5}}</view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</van-popup>

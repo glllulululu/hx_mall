@@ -1,0 +1,21 @@
+<view class="out_container">
+    <view class="ind_container">
+        <view class="commeon_css tel_input">
+            <view class="tel_left" style="display: flex;min-width: 15%;margin-right: 25rpx;" bindtap="choosePhoneCode">
+                <view style="font-size: 30rpx;margin-top: 2rpx;">+{{phoneCode}}</view>
+                <view class="arrow_down"></view>
+            </view>
+            <view class="tel_right" style="width: 100%;">
+                <input class="input" value="{{phone}}" placeholder="请输入手机号" type="number" maxlength="11" bindinput="phone" name="phone"/>
+            </view>
+        </view>
+        <view class="commeon_css code_input">
+            <view class="left" style="font-size: 30rpx;">验证码</view>
+            <view class="right get_code">
+               <input class="input" placeholder="请输入验证码" type="number" name="getCodeValue" bindinput="getCodeValue"/>
+                  <button type="primary" size="mini" bind:tap="setCode" disabled="{{button}}">{{text}}</button>
+            </view>
+        </view>
+    </view>
+    <view class="sub_btn" style="opacity: .5" bindtap="submitData">绑定手机号</view>
+</view>

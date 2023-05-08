@@ -1,0 +1,17 @@
+<form class='searchForm' bindsubmit='searchSubmitFn'>
+      <input value="{{searchValue}}" bindinput="handle" class='topInput' name='input' placeholder="{{serchContent}}"/>
+      <van-icon name="search" class="search"/>
+      <button formType='submit' class='searchBtn' bindtap="goto" >搜索</button>
+</form>
+<view class='historyContent'>
+    <view class='title'>
+      <h>最近搜索</h>
+    <image src="/imgs/ljt.png" class="trash" bindtap='historyDelFn'></image>
+    </view>
+    <view class='htrItemContent' data-index="{{index}}" bindtap="handle1">
+      <block wx:for="{{searchRecord}}" wx:key='{{item}}'>
+        <view class='htrItem'  >{{item.value}}</view>
+      </block> 
+      <view class='noHistoryItem' wx:if="{{searchRecord.length==0}}"></view>
+    </view>
+  </view>

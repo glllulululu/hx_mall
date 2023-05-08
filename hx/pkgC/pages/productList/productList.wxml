@@ -1,0 +1,14 @@
+<input value="{{searchValue}}" bindtap="goback" class='topInput' name='input' placeholder="请输入搜索关键词" />
+<van-icon name="search" class="search" />
+<!-- 全部商品数据 -->
+<view class="content" wx:for="{{listData}}" wx:key="list" bindtap="gotodetail" data-info3="{{item.productId}}">
+  <view class="viewImg">
+  <image src="/imgs/{{item.imgUrl}}" ></image>
+  </view>
+<view class="viewFont">
+<view>{{item.productName}}</view>
+<view class="outCount">已售{{item.outCount}}件</view>
+<view class="outPrice">￥{{item.outPrice2}}</view>
+</view>
+<image src="/imgs/buycar.png" class="imgCar"></image>
+</view>

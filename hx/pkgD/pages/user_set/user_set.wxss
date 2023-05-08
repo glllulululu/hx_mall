@@ -1,0 +1,14 @@
+.all1 view{
+  width: 90%;
+  height: 70rpx;
+  border-bottom: 1rpx solid rgb(230, 225, 225);
+  line-height: 70rpx;
+  padding: 20rpx;
+  margin: auto;
+}
+.all1{
+  width: 100%;
+}
+.all1 text{
+  float: right;
+}

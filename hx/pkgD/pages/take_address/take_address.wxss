@@ -1,0 +1,46 @@
+.list-item {
+  font-size: 16px;
+  padding: 30rpx;
+  padding-bottom: 80rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  background: pink;
+}
+.item-head {
+  padding-bottom: 20rpx;
+}
+.item-desc {
+  font-size: 16px;
+}
+.item-edit {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1px #ccc solid;
+}
+.right {
+  padding-top: 10rpx;
+  float: right;
+  padding-right: 20rpx;
+}
+.left {
+  float: left;
+  vertical-align: middle;
+}
+.chk-active {
+  color: #f31;
+}
+.ctr {
+  position: relative;
+  top: 6rpx;
+}
+.take_btn{
+  width: 686rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 80rpx;
+  border-radius: 40rpx;
+  background: #FF6000;
+  color: #fff;
+}

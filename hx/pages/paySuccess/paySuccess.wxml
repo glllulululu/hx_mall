@@ -1,0 +1,23 @@
+<view class="divAll">
+<view class="divTop">
+<view class="paypic"><image src="/imgs/success.png" ></image></view>
+<view class="payfont">支付成功</view>
+</view>
+<view class="divMiddle">
+<view class="payDetail" >
+<view class="divMoney">￥{{msg2}}</view>
+<view></view>
+</view>
+<view class="payDetail payDetail1">
+<view>订单编号</view>
+<view>{{msg}}</view>
+</view>
+<view class="payDetail">
+<view>下单时间</view>
+<view>{{msg1}}</view>
+</view>
+</view>
+<view class="pay">
+<button bindtap="gotoSee">查看订单</button>
+</view>
+</view>

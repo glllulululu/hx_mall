@@ -1,0 +1,139 @@
+/* 轮播图 */
+.swiper_container {
+  height: 400rpx;
+}
+
+.item {
+  height: 100%;
+  line-height: 400rpx;
+}
+
+.item>image {
+  width: 100%;
+}
+
+/* 展示商品 */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  color: rgb(158, 158, 158);
+}
+
+.up,
+.down {
+  font-size: 26rpx;
+}
+
+.down {
+  position: relative;
+  top: -35rpx;
+  left: 50rpx;
+}
+
+.up {
+  position: relative;
+  left: 68rpx;
+  top: -55rpx;
+}
+
+.select {
+  width: 35rpx;
+  height: 35rpx;
+  position: relative;
+  left: 68rpx;
+  top: -36rpx;
+}
+
+.btnSearch {
+  width: 60rpx;
+  height: 60rpx;
+  color: rgb(255, 96, 0);
+}
+
+.viewImg>image {
+  width: 240rpx;
+  height:220rpx;
+  border-radius: 5px;
+}
+
+.viewAll {
+  width: 700rpx;
+  padding-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.productName {
+  font-size: 35rpx;
+}
+
+.viewFont {
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.outPrice {
+  color: rgb(158, 158, 158);
+  font-size: 28rpx;
+  margin-top: -50rpx;
+}
+
+.outCount {
+  color: rgb(255, 96, 0);
+}
+
+.shopcar>image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 120rpx;
+  margin-right: -160rpx;
+}
+
+/* 弹出层筛选 */
+.divInput {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.divPrice {
+  font-weight: bold;
+  color: black;
+  margin-left: 20rpx;
+}
+
+.input {
+  width: 260rpx;
+  height: 80rpx;
+  background-color: #F5F5F5;
+  border-radius: 6rpx;
+  padding-left: 15rpx;
+  margin-left: 20rpx;
+}
+
+.input_line {
+  width: 50rpx;
+  text-align: center;
+  margin-top: -20rpx;
+}
+
+.input_line>text {
+  font-size: 80rpx;
+  font-weight: lighter;
+}
+
+/* 确定，重置按钮 */
+.btnOk {
+  display: flex;
+  width: 600rpx;
+  padding-left: 40rpx;
+  position: relative;
+  top: 800rpx;
+}
+.btnOk>view {
+  width: 300rpx;
+  padding: 10rpx;
+}

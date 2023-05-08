@@ -1,0 +1,128 @@
+<!--pages/customMsg/customMsg.wxml-->
+<view class="custMain">
+  <!-- 头部用户 -->
+  <view class="head">
+    <view class="head-inside">
+      <view class="head-power">
+        <!-- 用户头像 -->
+        <view class="imgBox">
+          <open-data type="userAvatarUrl" default-avatar="/imgs/yhtx.png" class="hpic" wx:if="{{isLogin}}"></open-data>
+          <image src="/imgs/yhtx.png" class="hpic" wx:if="{{!isLogin}}" />
+        </view>
+        <view class="headName">
+          <!-- 用户昵称 -->
+          <view>
+            <open-data type="userNickName" default-text="点击授权" binderror="getuserinfo" wx:if="{{isLogin}}"></open-data>
+            <text bindtap="getuserinfo" wx:if="{{!isLogin}}">点击授权 </text>
+          </view>
+          <view>
+            <button disabled="true" class="normalUser">普通用户</button>
+          </view>
+          <view>
+          </view>
+        </view>
+      </view>
+      <view class="head-count">
+        <navigator url="/pkgB/pages/coupon/coupon?isLogin={{isLogin}}">
+          <view wx:if="{{isLogin}}">优惠券 <text style="color:red">{{discountCount}}</text> </view>
+        </navigator>
+      </view>
+    </view>
+    <block wx:if="{{isLogin}}">
+      <view class="random">
+        用户编号：{{currentId}}
+      </view>
+    </block>
+  </view>
+  <!-- 商城订单 -->
+  <view class="middle">
+    <view class="exitBtn">
+    <button bindtap="exitUser" type="primary" wx:if="{{isLogin}}" class="exit">退出登录</button></view>
+    <view class="midd-all">
+      <view>商城订单</view>
+      <navigator url="/pkgB/pages/orderAll/orderAll">
+        <view class="allordertext"><label for="allOrder">全部订单</label>
+          <image src="/imgs/qbdd.png" class="midd-right" id="allOrder" />
+        </view>
+      </navigator>
+    </view>
+    <view class="midd-state">
+      <navigator url="/pkgB/pages/orderAll/orderAll" data-index="0">
+        <view>
+          <image src="/imgs/dfk.png" />
+          <view>待付款</view>
+        </view>
+      </navigator>
+      <navigator url="/pkgB/pages/orderAll/orderAll" data-index="1">
+        <view>
+          <image src="/imgs/dfh.png" />
+          <view>待发货</view>
+        </view>
+      </navigator>
+      <navigator url="/pkgB/pages/orderAll/orderAll" data-index="2">
+        <view>
+          <image src="/imgs/dsh.png" />
+          <view>待收货</view>
+        </view>
+      </navigator>
+      <navigator url="/pkgB/pages/orderAll/orderAll" data-index="3">
+        <view>
+          <image src="/imgs/dpj.png" />
+          <view>待评价</view>
+        </view>
+      </navigator>
+      <navigator url="/pkgB/pages/orderAll/orderAll" data-index="4">
+        <view>
+          <image src="/imgs/tksh.png" />
+          <view>退款售后</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 设置-- -->
+  <view class="foot">
+    <!-- 账户设置 -->
+    <view>
+      <navigator url="/pkgD/pages/user_set/user_set" open-type="navigate">
+        <view class="foot-left">
+          <view>
+            <image src="/imgs/good (2).png" class="foot-good" />
+          </view>
+          <view>账户设置 </view>
+        </view>
+        <view>
+          <image src="/imgs/qbdd.png" class="midd-right" />
+        </view>
+      </navigator>
+    </view>
+    <!-- 购物车 -->
+    <view>
+      <navigator url="/pages/shopcar/shopcar" open-type="switchTab">
+        <view class="foot-left">
+          <view>
+            <image src="/imgs/good (1).png" class="foot-good" />
+          </view>
+          <view>购物车</view>
+        </view>
+        <view>
+          <image src="/imgs/qbdd.png" class="midd-right" />
+        </view>
+      </navigator>
+    </view>
+    <!-- 我的优惠券 -->
+    <view>
+      <navigator url="/pkgB/pages/coupon/coupon?isLogin={{isLogin}}">
+        <view class="foot-left">
+          <view>
+            <image src="/imgs/good (3).png" class="foot-good" />
+          </view>
+          <view>我的优惠券</view>
+        </view>
+        <view>
+          <image src="/imgs/qbdd.png" class="midd-right" />
+        </view>
+      </navigator>
+    </view>
+
+  </view>
+</view>

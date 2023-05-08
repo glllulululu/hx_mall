@@ -1,0 +1,10 @@
+<!-- 用户评价详情页 -->
+<view wx:for="{{comment_detail}}" wx:key="index" class="comments_detail">
+<view class="cid_title">
+  <view class="productCid"><image src="/imgs/{{item.head}}" class="pic_head"></image>{{item.cid}}</view>
+   <view class="productComment_type">评价类型：{{item.comment_type}}</view>
+   <view class="orderTime">{{item.orderTime}}</view>
+   </view>
+  <view class="productComment">{{item.comment}}</view>
+  <view class="boss_reply">商家回复：{{item.reply}}</view>
+</view>

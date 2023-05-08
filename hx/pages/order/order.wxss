@@ -1,0 +1,236 @@
+page {
+  background-color: #F5F5F5;
+}
+/* 收货地址 */
+.divAddress{
+  margin-top: 20rpx;
+  width: 100%;
+  height:150rpx;
+  background-color: white;
+  line-height: 150rpx;
+}
+.detaddress{
+  margin-top:-150rpx;
+  margin-left:380rpx;
+}
+.divPosition>image{
+width:40rpx;
+height:40rpx;
+margin-left: 20rpx;
+}
+.divAdd{
+  margin-top:-155rpx;
+  margin-left:700rpx;
+  font-size: 40rpx;
+  color:rgba(117, 113, 113,0.5);
+}
+.no_address1{
+  margin-top:-120rpx;
+  margin-left:70rpx;
+}
+.no_address,.have_address,.address_info{
+  margin-left:60rpx;
+}
+.no_address{
+  margin-top:-200rpx;
+  font-size: 30rpx;
+  color: red;
+}
+.have_address{
+  margin-top:-160rpx;
+}
+.address_info{
+  display: flex;
+  margin-top:-100rpx;
+}
+.address_info>view{
+font-size:28rpx;
+}
+.phone{
+  margin-left:20rpx;
+}
+/* 获取确定订单的产品 */
+.goods_order,.divPay{
+  width: 100%;
+  height:100%;
+  background-color: white;
+  margin-top:20rpx;
+}
+.buy_list{
+  margin-top: -180rpx;
+  position: relative;
+  left:18rpx;
+}
+.goods_list{
+  margin-left:-5rpx;
+}
+.priceFont{
+  color:rgb(255, 96, 0);
+}
+.goods_pic>image,.goods_title,.goods_send>view:nth-child(1),.leave_msg>view:nth-child(1),.divTotal>view:nth-child(1),.divSend>view:nth-child(1),.divDiscount>view:nth-child(1),.divMethod>view:nth-child(1){
+  margin-left: 20rpx;
+}
+.goods_pic>image{
+width: 150rpx;
+height: 150rpx;
+margin-top: 20rpx;
+border-radius:8rpx;
+}
+.goods_title{
+  font-weight: bold;
+  padding-top:30rpx;
+}
+.goods_name{
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left:-310rpx;
+  margin-top:20rpx;
+}
+.goods_count{
+  color: rgba(117, 113, 113,0.5);
+  font-size: 35rpx;
+  margin-top:45rpx;
+}
+.goods_list,.goods_send,.leave_msg,.divTotal,.divSend,.divDiscount,.divMethod{
+  display: flex;
+  justify-content: space-between;
+}
+.goods_send>view:nth-child(2),.goods_count,.divDiscount>view:nth-child(2),.divTotal>view:nth-child(2),.divSend>view:nth-child(2),.divMethod>view:nth-child(2){
+  margin-right:40rpx;
+}
+.leave_msg,.pay_msg{
+margin-top:10rpx;
+padding-top:40rpx;
+border-top:1px solid #F5F5F5;
+}
+.leave_msg>view:nth-child(2),.divDiscount>view:nth-child(2){
+color: rgba(117, 113, 113,0.5);
+margin-right:-10rpx;
+}
+.divDiscount>view:nth-child(2){
+  margin-right:18rpx;
+}
+/* 支付 */
+.divPay{
+height:300rpx;
+}
+.divTotal>view,.divSend>view,.divDiscount>view{
+  margin-top:30rpx;
+}
+.pay_msg>view{
+  margin-left:560rpx;
+  margin-top:-20rpx;
+}
+.divMethod{
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: white;
+  height:100rpx;
+  line-height: 100rpx;
+}
+/* 提交订单 */
+.pay_total{
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+  margin-top:80rpx;
+  display: flex;
+  flex-direction: row;
+ padding-left:370rpx;
+}
+.pay_total>view>button{
+  width:200rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  border-radius:35rpx;
+  background-color: rgb(224, 224, 224);
+  border:1px solid  rgb(224, 224, 224) 0.2;
+  color: white;
+  margin-top:12rpx;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+.pay_total>view:nth-child(1){
+  margin-top:40rpx;
+}
+.pay_msg>view>text,.pay_total>view>text{
+  color:rgb(255, 96, 0);
+}
+/* 优惠券 */
+.discount_title{
+  margin-top:40rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.viewDiscount{
+  width:680rpx;
+  height:180rpx;
+  background-color: white;
+  margin-top:50rpx;
+  margin-left: 30rpx;
+  border-radius:15rpx;
+  display: flex;
+}
+.dis_price,.dis_name{
+margin-top:50rpx;
+margin-left:30rpx;
+}
+.dis_name{
+margin-left:80rpx;
+}
+.end_time,.threshod,.limit_price{
+  font-size:26rpx;
+  color: rgba(117, 113, 113,0.7);
+}
+.discount_name{
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.dis_price>view>text{
+  color:rgb(255, 96, 0);
+  font-size:45rpx;
+}
+.use_discount>text{
+  color:rgb(255, 96, 0);
+  font-size:26rpx;
+}
+.no_discount{
+  text-align:center;
+  margin-top:80rpx;
+}
+.dissatisfy,.no_discount{
+  font-size:26rpx;
+  color:#EEB422;
+}
+.dissatisfy{
+  margin-top:10rpx;
+}
+.discount_receive>button{
+  font-size:25rpx;
+  font-weight:bold;
+  color:rgba(255,96,0,0.8);
+  margin-left:300rpx;
+  margin-top:-80rpx;
+  width:120rpx;
+  height:80rpx;
+  padding:10rpx;
+}
+.confirm_use>button{
+ width:700rpx;
+ background-color:rgb(255,96,0);
+ color: white;
+ font-size:33rpx;
+ font-weight: bold;
+ border-radius:30rpx;
+ border: 0.5px solid rgba(117, 113, 113,0.2);
+}
+.confirm_use{
+  margin-top:60rpx;
+}
+.confirm_receive{
+  margin-top:80rpx;
+  text-align: center;
+}

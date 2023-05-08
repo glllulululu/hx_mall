@@ -1,0 +1,25 @@
+<radio-group bindchange="radioChange">
+<view class='list-item' wx:for="{{addressList}}" wx:key="index">
+<view class='item-head'>
+    <text>{{item.customName}}</text>
+    <text class='right'>{{item.phone}}</text>
+</view>
+
+<view class='item-desc'>
+   <text>{{item.address}}{{item.detaddress}}</text>
+</view>
+
+<view class='item-edit'>
+   <view class='left'>
+        <radio value="{{index}}" checked="{{item.statu}}" >
+        <text class='ctr'>设为默认</text>
+        </radio>
+  </view>
+  <view class='right'>
+      <text bindtap="delAddr" data-index="{{item.address_id}}">删除</text>
+  </view>
+</view>
+</view>
+</radio-group>
+<!--按钮-->
+<view class="take_btn"><navigator url="/pkgD/pages/add_address/add_address">新增收货地址</navigator></view>

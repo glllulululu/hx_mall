@@ -1,0 +1,92 @@
+<view class="divAll">
+<view class="container2">
+  <!-- 购物车为空时样式 -->
+  <view class="wannaBuy" wx:if="{{hasList==false}}">
+    <image src="/imgs/noproduct.png" class="noproduct"></image>
+    <view class="fontCar">暂无商品加入购物车，快去选购</view>
+    <button class="btncar" bindtap="gotoIndex">去逛逛</button>
+  </view>
+  <!-- 购物车添加商品后样式 -->
+  <!-- 顶部 -->
+  <view wx:if="{{hasList==true}}">
+  <view class="buyCartop">
+    <view class="buycartop_left">
+      <image src="/imgs/shop.png"></image>
+      <view class="buycartop_leftFont">红星小卖部</view>
+    </view>
+    <view class="buycartop_rightFont" bindtap="showedit" >{{editText}}</view>
+  </view>
+  <!-- 中间加购商品 -->
+  <view class="car_middleAll">
+  <view wx:for="{{carts}}" wx:key="index" class="car_middle">
+  <view>
+  <!-- 复选框 -->
+<checkbox-group   bindchange="goselect">
+  <label class="checkbox">
+  <checkbox  data-radio="{{item.productId}}"  
+  value="{{check}}" class="checkrideo" bindtap="gotoRadio"></checkbox>
+  </label>
+</checkbox-group>
+  </view>
+ <view class="car_middle1">
+    <view class="buycar_img" bindtap="gobuycarDetail" data-buycar="{{item.productId}}">
+      <image src="/imgs/{{item.imgUrl}}" ></image>
+    </view>
+    <view class="buycar_font">
+      <view>{{item.productName}}</view>
+      <view>￥{{item.outPrice2}}</view>
+    </view>
+    </view>
+      <view class="buycar_count">
+        <button class="minus" catchtap="handleMinus" data-index="{{index}}">-</button>
+        <input class="buycar_input"  value="{{item.Count1}}" bindinput="handleInput" data-index="{{index}}" />
+        <button class="plus" catchtap="handlePlus" data-index="{{index}}">+</button>
+      </view>
+    <!-- </view> -->
+</view>
+</view>
+  <!-- 底部 -->
+  <view >
+  <van-submit-bar price="￥{{totalPrice}}" button-text="去结算" bindtap="onClickSettle" tip="{{ true }}">
+<van-tag type="primary">
+  </van-tag>
+  </van-submit-bar>
+</view></view>
+<!-- 授权登录 -->
+<van-popup show="{{ show5 }}" round position="bottom" custom-style="height:25%" bind:close="onClose">
+    <view class="power_title">
+      <view>
+        <image src="/imgs/shop_name.png" class="power_head"></image>
+      </view>
+      <view class="power_font"><text decode="{{true}}">&nbsp;红星小卖部&nbsp;登录</text></view>
+      <view class="power_close" bindtap="gotoClose"><text>x</text></view>
+    </view>
+    <van-button type="primary" size="large" custom-style="width:85%;height:80rpx;margin-left:50rpx;margin-top:50rpx;" bindtap="onClickShow">
+      授权登录</van-button>
+  </van-popup>
+<!-- 点击全部删除 -->
+<view class="delete {{editTrue?'isRuleShow':'isRuleHide'}}">
+  <van-submit-bar  button-text="删除" bindtap="onClickButton" tip="{{ true }}"           >
+    <van-tag type="primary">
+    </van-tag>
+  </van-submit-bar>
+</view>
+  <!-- 商品推荐 -->
+  <view class="descript salescript">
+    <view>
+      <image src="/imgs/line_left.png"></image>
+    </view>
+    <view class="desfont">推荐商品</view>
+    <view>
+      <image src="/imgs/line_right.png"></image>
+    </view>
+  </view>
+  <view wx:for="{{sales}}" wx:key="index" class="sale" bindtap="gotodetail" data-info3="{{item.productId}}">
+    <view class="sale_img">
+      <image src="/imgs/{{item.imgUrl}}"></image>
+    </view>
+    <view class="sale_name">{{item.productName}}</view>
+    <view class="sale_outPrice">￥{{item.outPrice2}}</view>
+  </view>
+</view>
+</view>

@@ -1,0 +1,89 @@
+/* pages/orderAll/orderAll.wxss */
+page {
+  background-color: #F5F5F5;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 70rpx;
+  color: rgb(127, 127, 127);
+  position: relative;
+}
+
+.active {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-silder {
+  transition: all linear .3s;
+  width: 48px;
+  height: 4rpx;
+  /* background-color: red; */
+  position: absolute;
+  bottom: 0;
+}
+
+swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-content {
+  height: calc(100vh - 0rpx)
+}
+
+.showNone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: #999999;
+}
+
+.showNone>image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.coupon,.coupon2 {
+  position: relative;
+
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+.coupon{
+  color: #7e7b7b;
+}
+
+.much>view:first-child {
+  font-size: 60rpx;
+}
+
+.much>view:last-child {
+  font-size: 25rpx;
+}
+
+.already {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  /* border: 1px solid black; */
+  right: 0;
+  top: -20rpx;
+}
+
+.already>image {
+  width: 100%;
+  height: 100%;
+}
+
+.middle {
+  line-height: 50rpx;
+}

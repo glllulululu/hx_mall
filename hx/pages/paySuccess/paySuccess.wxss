@@ -1,0 +1,53 @@
+.paypic>image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.divAll{
+width: 100%;
+height:1200rpx;
+text-align: center;
+background-color: rgb(247,247, 247);
+}
+.divTop{
+ padding-top:80rpx;
+ height: 400rpx;
+ background-color:#55bd77;
+}
+.payfont{
+color: white;
+}
+.payDetail{
+  display: flex;
+  justify-content: space-between;
+}
+.payDetail>view{
+ margin-right:30rpx;
+ margin-left: 30rpx;
+}
+.divMiddle{
+  margin-top:-50rpx;
+  margin-left:65rpx;
+  width:600rpx;
+  height:300rpx;
+  background-color: white;
+  color: rgb(131, 128, 128);
+}
+.payDetail1{
+  border-top: 1px solid rgb(238, 230, 230);
+  margin-top:30rpx;
+  padding-bottom:20rpx;
+  padding-top:20rpx;
+}
+.divMoney{
+  margin-top:50rpx;
+  font-size: 45rpx;
+  color:#55bd77;
+ padding-left:200rpx;
+}
+.pay>button{
+  background-color: #55bd77;
+  color: white;
+  width:80%;
+  border-radius:40rpx;
+  margin-top:120rpx;
+}

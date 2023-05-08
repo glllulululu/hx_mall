@@ -1,0 +1,66 @@
+<view>
+  <!-- 轮播图 -->
+  <swiper class="swiper_container" autoplay interval="1500">
+    <swiper-item>
+      <view class="item">
+        <image src="/imgs/{{pic[0].index_imgUrl}}"></image>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="item">
+        <image src="/imgs/{{pic[1].index_imgUrl}}"></image>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="item">
+        <image src="/imgs/{{pic[2].index_imgUrl}}"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 展示商品 -->
+  <!-- 标题点击切换变色 -->
+  <view class="tabs">
+    <view bindtap="ChangeColor" style="{{currentIndex==0?'color: rgb(255,96,0);':''}}">综合</view>
+    <view bindtap="ChangeColor1" style="{{currentIndex==1?'color: rgb(255,96,0);':''}}">销量</view>
+    <view bindtap="ChangeColor2" style="{{currentIndex==2?'color: rgb(255,96,0);':''}}">新品</view>
+    <view>
+      <view bindtap="ChangeColor3" style="{{currentIndex==5||currentIndex==6?'color: rgb(255,96,0);':''}}">价格 </view>
+      <span class="up" bindtap="ChangeColor5" style="{{currentIndex==5?'color: rgb(255,96,0);':''}}">∧</span>
+      <span class="down" bindtap="ChangeColor6" style="{{currentIndex==6?'color: rgb(255,96,0);':''}}">∨</span>
+    </view>
+    <view>
+      <view bindtap="showPopup" style="{{currentIndex==4?'color: rgb(255,96,0);':''}}">筛选</view>
+      <!-- 右侧弹出层 -->
+        <van-popup show="{{ show }}" position="right" custom-style="width:90%;height:100%" bind:close="onClose" >
+      <view class="divPrice">价格区间</view>
+      <view class="divInput">
+      <view><input type="text" bindinput="downPrice" placeholder="最低价格" class="input" value="{{msg}}"/></view>
+      <view class="input_line"><text>-</text></view>
+      <view><input type="text" bindinput="upPrice" placeholder="最高价格" class="input" value="{{msg}}"/></view>
+      </view>
+      <view class="btnOk">
+      <view><van-button color="#FF6633" plain size="large" bindtap="reset">重置</van-button></view>
+      <view><van-button color="#FF6633" size="large" bindtap="subOk">确定</van-button></view>
+     </view>
+      </van-popup>
+      <image src="/imgs/select.png" class="select"></image>
+    </view>
+    <view>
+      <image src="/imgs/search.png" class="btnSearch" bindtap="gotoSearch"></image>
+    </view>
+  </view>
+  <!-- 渲染商品 -->
+  <view wx:for="{{foods}}" wx:key="index" class="viewAll">
+    <view class="viewImg">
+      <image src="/imgs/{{item.imgUrl}}"></image>
+    </view>
+    <view class="viewFont">
+      <view class="productName">{{item.productName}}</view>
+      <view class="outPrice">已售{{item.outCount}}件</view>
+      <view class="outCount">￥{{item.outPrice2}}</view>
+    </view>
+    <view class="shopcar">
+      <image src="/imgs/shopcar3.png" bindtap="goshop" data-info="{{item.productId}}" data-info2="{{item.productName}}"></image>
+    </view>
+  </view>
+</view>

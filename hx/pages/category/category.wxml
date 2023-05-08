@@ -1,0 +1,25 @@
+<view class="container1">
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" bindtap="skip" />
+<!-- 左侧菜单 -->
+<scroll-view class="left-menu" scroll-y="true">
+<view class="left-menu-common  {{activeIndex==index?'left-menu-selected':'left-menu-unselect'}}"  wx:for="{{listData3}}" wx:key="index"  data-index="{{index}}" bindtap="selectMenu">
+  
+<view class="list-menu-name"   bindtap="goto"  data-info7="{{item.id}}">
+{{item.typeName}}
+</view>
+</view>
+</scroll-view>
+<!-- 右侧内容 -->
+<scroll-view scroll-y="true" style="height: 1300rpx;" scroll-into-view="{{toView}}" scroll-top="{{scroll-Top}}" scroll-with-animation="true">
+<view class="content" id="a{{index}}" wx:for="{{listData}}" wx:key="list" bindtap="goDetail" data-info6="{{item.productId}}"     data-info8="{{item.productName}}">
+  <view class="viewImg">
+  <image src="/imgs/{{item.imgUrl}}" ></image>
+  </view>
+<view class="viewFont">
+<view>{{item.productName}}</view>
+<view class="outCount">已售{{item.outCount}}件</view>
+<view class="outPrice">￥{{item.outPrice2}}</view>
+</view>
+</view>
+</scroll-view>
+</view>

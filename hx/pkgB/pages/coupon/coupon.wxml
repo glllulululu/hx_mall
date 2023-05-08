@@ -1,0 +1,87 @@
+<view>
+  <!-- ------tab头部 -->
+  <view class="navBar">
+    <block wx:for="{{tabs}}" wx:key="index">
+      <view id="{{index}}" class="{{tabIndex==index?'active':''}}" bindtap="onTabClick">
+        <view class="navItem">{{item}}</view>
+      </view>
+    </block>
+    <!-- /滑动条 -->
+    <view class="nav-silder" style="left:{{sliderLeft}}px; transform: translateX({{sliderOffset}}px); "></view>
+  </view>
+  <swiper class="swiper-content" bindchange="swiperChange" current="{{tabIndex}}" data-index="{{tabIndex}}">
+    <!-- 未使用 -->
+    <swiper-item class="content-page">
+      <view>
+        <view class="showNone">
+          <image src="/imgs/quan.png" mode="" />
+          <text>空空如也 ~</text>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 已使用 -->
+    <swiper-item class="content-page">
+      <view class="item">
+        <!-- 没有登录 -->
+        <view wx:if="{{isLogin=='false'}}||{{haveCoupon}}">
+          <view class="showNone">
+            <image src="/imgs/quan.png" mode="" />
+            <text>空空如也 ~ </text>
+            <text></text>
+          </view>
+        </view>
+        <!-- 没数据时 且已登录-->
+        <view wx:if="{{!haveCoupon}}">
+          <view wx:if="{{isLogin=='true'}}">
+            <view class="coupon">
+              <view class="much">
+                <view>￥ 1</view>
+                <view>商品优惠券</view>
+              </view>
+              <view class="middle">
+                <view>满15可用</view>
+                <view>店铺内所有商品都可用</view>
+                <view>红星商城小程序店</view>
+              </view>
+              <view class="already">
+                <image src="/imgs/ygq (2).png" alt="" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 已失效 -->
+    <swiper-item class="content-page">
+      <view class="item">
+        <!-- 没有登录 -->
+        <view wx:if="{{isLogin=='false'}}">
+          <view class="showNone">
+            <image src="/imgs/quan.png" mode="" />
+            <text>空空如也 ~ </text>
+            <text></text>
+          </view>
+        </view>
+        <!-- 有数数据时 且已登录-->
+        <view wx:if="{{haveCoupon}}">
+          <view wx:if="{{isLogin=='true'}}">
+            <view class="coupon">
+              <view class="much">
+                <view>￥ 1</view>
+                <view>商品优惠券</view>
+              </view>
+              <view class="middle">
+                <view>满15可用</view>
+                <view>店铺内所有商品都可用</view>
+                <view>红星商城小程序店</view>
+              </view>
+              <view class="already">
+                <image src="/imgs/ygq (1).png" alt="" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

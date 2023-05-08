@@ -1,0 +1,149 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300rpx;
+  background: linear-gradient(to left top, #EAECFA, #EDE6F1, #F2E3EA);
+}
+.random{
+  margin-top: 10rpx;
+}
+.head-inside,
+.head-power {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.head-power {
+  font-weight: bold;
+}
+
+.head-count {
+  text-align: center;
+}
+
+.imgBox {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.hpic {
+  width: 100%;
+  height: 100%;
+}
+
+.headName {
+  margin-left: 20rpx;
+}
+
+.normalUser {
+  width: 150rpx;
+  font-size: 20rpx;
+}
+
+.middle,
+.foot {
+  background-color: #fff;
+}
+
+/* 全部盒子的间距，内边距 */
+.middle,
+.head {
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+}
+
+.foot {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 订单部分 */
+.midd-all {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle>view {
+  margin-bottom: 30rpx;
+}
+
+.midd-all>view:first-of-type {
+  font-weight: bold;
+}
+
+.allordertext {
+  color: #999999;
+  vertical-align: middle;
+  font-size: 26rpx;
+}
+
+.midd-right {
+  margin-left: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+
+}
+
+.midd-state {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/* 商城订单和下面账户设置的小图片大小 */
+.midd-state image,
+.foot-good {
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle;
+}
+
+.foot>view {
+  border-bottom: .5px solid #dbd6d6;
+  line-height: 100rpx;
+}
+
+.foot>view>navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foot>view .foot-left {
+  width: 40%;
+  display: flex;
+}
+
+.foot-left>view {
+  margin-right: 20rpx;
+}
+
+.loginIn {
+  color: #999999;
+  text-align: center;
+
+}
+/* 退出登录 */
+.exit{
+  width:100rpx;
+  height:70rpx;
+  font-size:20rpx;
+  padding: 0px;
+ line-height: 70rpx;
+ margin-left:600rpx;
+}
+.exitBtn{
+position: relative;
+top:-180rpx;
+}

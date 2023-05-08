@@ -1,0 +1,208 @@
+<view>
+  <!-- ------tab头部 -->
+  <view class="navBar">
+    <block wx:for="{{tabs}}" wx:key="index">
+      <view id="{{index}}" class="{{tabIndex==index?'active':''}}" bindtap="onTabClick">
+        <view class="navItem">{{item}}</view>
+      </view>
+    </block>
+    <!-- /滑动条 -->
+    <view class="nav-silder" style="left:{{sliderLeft}}px; transform: translateX({{sliderOffset}}px); "></view>
+  </view>
+  <!-- current改变会触发 bindchange事件-->
+  <!-- data-index -->
+  <view style="{{boxStyle}}" class="swiperBox">
+    <swiper class="swiper-content" bindchange="swiperChange" current="{{tabIndex}}" data-index="{{tabIndex}}">
+      <!-- 全部订单 -->
+      <swiper-item class="content-page">
+        <scroll-view scroll-y="true" class="scroll">
+          <!-- 没有订单时显示 -->
+          <block wx:if="{{!haveOrder}}">
+            <view class="showNone">
+              <image src="/imgs/wdd.png" mode="center" />
+              <text>您还没有任何订单</text>
+              <text>去逛逛商城吧❤</text>
+            </view>
+          </block>
+          <!-- 有订单时 -->
+          <block wx:if="{{haveOrder}}">
+            <view class="haveShow">
+              <view class="line-top">
+                <text class="orderId"> 订单编号：{{orderId}}</text>
+                <text class="service2" wx:if="{{orderState=='6'}}">等待买家付款</text>
+                <text class="service2" wx:if="{{orderState=='2'}}">交易成功</text>
+                <text class="service2" wx:if="{{orderState=='4'}}">退款成功</text>
+                <text class="service2" wx:if="{{orderState=='0'}}">待发货</text>
+                <text class="service2" wx:if="{{orderState=='1'}}">待收货</text>
+              </view>
+              <view wx:for="{{showOrder1}}" wx:key="index" class="order">
+                <view class="order-content">
+                  <view class="orderImg">
+                    <image src="/imgs/{{item.imgUrl}}" alt="" />
+                  </view>
+                  <view class="content-middle">
+                    <view class="pname">{{item.productName}}</view>
+                    <view class="service1" wx:if="{{orderState!='2'}}">服务保障中</view>
+                  </view>
+                  <view class="content-right">
+                    <view>￥{{item.outPrice}}</view>
+                    <view class="colorg">x{{item.count}}</view>
+                  </view>
+                </view>
+              </view>
+              <text class="allPrice">实付款￥{{allPrice}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 待支付 -->
+      <swiper-item class="content-page">
+        <scroll-view scroll-y="true" class="scroll">
+          <block wx:if="{{haveState==0}}">
+            <view class="showNone">
+              <image src="/imgs/wzf.png" mode="center" />
+              <text>当前没有待支付的订单</text>
+              <text>去逛逛商城吧❤</text>
+            </view>
+          </block>
+          <!-- 有订单时 -->
+          <block wx:if="{{haveOrder}}">
+            <view class="haveShow" wx:if="{{orderState=='6'}}">
+              <view class="line-top">
+                <text class="orderId"> 订单编号：{{orderId}}</text>
+                <text class="service2">等待买家付款{{haveState}}</text>
+              </view>
+              <view wx:for="{{showOrder1}}" wx:key="index" class="order">
+                <view class="order-content">
+                  <view class="orderImg">
+                    <image src="/imgs/{{item.imgUrl}}" alt="" />
+                  </view>
+                  <view class="content-middle">
+                    <view class="pname">{{item.productName}}</view>
+                    <view class="service1" wx:if="{{item.state!=2}}">服务保障中</view>
+                  </view>
+                  <view class="content-right">
+
+                  </view>
+                </view>
+              </view>
+              <text class="allPrice">实付款￥{{allPrice}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 待发货 -->
+      <swiper-item class="content-page">
+        <scroll-view scroll-y="true" class="scroll">
+          <block wx:if="{{haveState==0}}">
+            <view class="showNone">
+              <image src="/imgs/wsj.png" mode="center" />
+              <text>当前没有待发货的订单</text>
+              <text>去逛逛商城吧❤</text>
+            </view>
+          </block>
+          <!-- 有订单时 -->
+          <block wx:if="{{haveOrder}}">
+            <view class="haveShow" wx:if="{{orderState=='0'}}">
+              <view class="line-top">
+                <text class="orderId"> 订单编号：{{orderId}}</text>
+                <text class="service2">等待卖家发货</text>
+              </view>
+              <view wx:for="{{showOrder1}}" wx:key="index" class="order">
+                <view class="order-content">
+                  <view class="orderImg">
+                    <image src="/imgs/{{item.imgUrl}}" alt="" />
+                  </view>
+                  <view class="content-middle">
+                    <view class="pname">{{item.productName}}</view>
+                    <view class="service1" wx:if="{{item.state!=2}}">服务保障中</view>
+                  </view>
+                  <view class="content-right">
+                    <text class="service2" wx:if="{{item.state==0}}">等待商家发货</text>
+                  </view>
+                </view>
+              </view>
+              <text class="allPrice">实付款￥{{allPrice}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 待收货 -->
+      <swiper-item class="content-page">
+        <scroll-view scroll-y="true" class="scroll">
+          <block wx:if="{{haveState==0}}">
+            <view class="showNone">
+              <image src="/imgs/wsj.png" mode="center" />
+              <text>当前没有待收货的订单</text>
+              <text>去逛逛商城吧❤</text>
+            </view>
+          </block>
+          <!-- 有订单时 -->
+          <block wx:if="{{haveOrder}}">
+            <view class="haveShow" wx:if="{{orderState=='1'}}">
+              <view class="line-top">
+                <text class="orderId"> 订单编号：{{orderId}}</text>
+                <text class="service2">运输中...</text>
+              </view>
+              <view wx:for="{{showOrder1}}" wx:key="index" class="order">
+                <view class="order-content">
+                  <view class="orderImg">
+                    <image src="/imgs/{{item.imgUrl}}" alt="" />
+                  </view>
+                  <view class="content-middle">
+                    <view class="pname">{{item.productName}}</view>
+                    <view class="service1" wx:if="{{item.state!=2}}">服务保障中</view>
+                  </view>
+                  <view class="content-right">
+                    <text class="service2" wx:if="{{item.state==1}}"></text>
+                  </view>
+                </view>
+              </view>
+              <text class="allPrice">实付款￥{{allPrice}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 待评价 -->
+      <swiper-item class="content-page">
+        <scroll-view scroll-y="true" class="scroll">
+          <block wx:if="{{haveState==0}}">
+            <view class="showNone">
+              <image src="/imgs/wpj.png" mode="center" />
+              <text>当前没有待评价的订单</text>
+              <text>去逛逛商城吧❤</text>
+            </view>
+          </block>
+          <!-- 有订单时 -->
+          <block wx:if="{{haveOrder}}">
+            <view class="haveShow" wx:if="{{orderState=='2'}}">
+              <view class="line-top">
+                <text class="orderId"> 订单编号：{{orderId}}</text>
+                <text class="service2">运输中...</text>
+              </view>
+              <view wx:for="{{showOrder1}}" wx:key="index" class="order">
+                <view class="order-content">
+                  <view class="orderImg">
+                    <image src="/imgs/{{item.imgUrl}}" alt="" />
+                  </view>
+                  <view class="content-middle">
+                    <view class="pname">{{item.productName}}</view>
+                    <view class="service1" wx:if="{{item.state!=2}}">服务保障中</view>
+                  </view>
+                  <view class="content-right2">
+                    <text class="service2" wx:if="{{item.state==2}}">生活不易,给商家一个好评吧</text>
+
+                    <button class="comm" disabled wx:if="{{item.doneCom=='1'}}">已评价</button>
+                    <button class="comm" wx:if="{{item.doneCom=='0'}}" data-oId="{{item.orderId}}" data-pName="{{item.productName}}" data-pid="{{item.productId}}" bindtap="gotocomment">去评价</button>
+                  </view>
+                </view>
+              </view>
+              <text class="allPrice">实付款￥{{allPrice}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+
+  </view>
+</view>

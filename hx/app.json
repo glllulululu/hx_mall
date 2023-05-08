@@ -1,0 +1,97 @@
+{
+  "pages":[
+    "pages/Index_page/Index_page",
+    "pages/category/category",
+    "pages/shopcar/shopcar",
+    "pages/customMsg/customMsg",
+    "pages/product_detail/product_detail",
+    "pages/order/order",
+    "pages/pay/pay",
+    "pages/paySuccess/paySuccess",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "subPackages": [
+    {
+    "root":"pkgA",
+    "pages":[
+    "pages/comment_detail/comment_detail"
+    ]
+    },
+    {
+    "root":"pkgB",
+    "pages":[
+    "pages/coupon/coupon",
+    "pages/orderAll/orderAll",
+    "pages/goComment/goComment"
+    ]
+    },
+    {
+      "root":"pkgC",
+      "pages":[
+      "pages/commoditySearch/commoditySearch",
+      "pages/productList/productList"
+      ]
+    },
+    {
+      "root":"pkgD",
+      "pages":[
+        "pages/user_set/user_set",
+        "pages/reset phone/reset phone",
+        "pages/custom detail/custom detail",
+        "pages/countryPhoneCode/countryPhoneCode",
+        "pages/add_address/add_address",
+        "pages/take_address/take_address"
+      ]
+    }
+],
+  "window":{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true,
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "selectedColor":"#FF6633",
+     "borderStyle":"white",
+    "list":[
+        {
+            "pagePath": "pages/Index_page/Index_page",
+            "text":"首页",
+            "iconPath": "/imgs/index_pic.png",
+            "selectedIconPath": "/imgs/index-pic2.png"
+        },
+        {
+          "pagePath": "pages/category/category",
+          "text":"分类",
+          "iconPath": "/imgs/type.png",
+          "selectedIconPath": "/imgs/type2.png"
+      },
+      {
+          "pagePath": "pages/shopcar/shopcar",
+          "text":"购物车",
+          "iconPath": "/imgs/shopcar.png",
+          "selectedIconPath": "/imgs/shopcar2.png"
+      },
+      {
+        "pagePath": "pages/customMsg/customMsg",
+        "text":"我的",
+        "iconPath": "/imgs/custom.png",
+        "selectedIconPath": "/imgs/custom2.png"
+    }
+    ]
+},
+"usingComponents": {
+  "van-goods-action": "@vant/weapp/goods-action/index",
+  "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+  "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+  "van-popup": "@vant/weapp/popup/index",
+  "van-button": "@vant/weapp/button/index",
+  "van-tab": "@vant/weapp/tab/index",
+  "van-tabs": "@vant/weapp/tabs/index",
+  "van-search": "@vant/weapp/search/index",
+  "van-icon": "@vant/weapp/icon/index",
+  "van-submit-bar": "@vant/weapp/submit-bar/index"
+},
+  "sitemapLocation": "sitemap.json"
+}

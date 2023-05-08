@@ -1,0 +1,10 @@
+<view class="all1">
+  <view><navigator url="/pkgD/pages/reset phone/reset phone">绑定手机号<text>{{msg}}</text></navigator></view>
+  <view><navigator url="/pkgD/pages/custom detail/custom detail">个人信息</navigator></view>
+  <view><navigator url="">我的证件</navigator></view>
+  <view><navigator url="/pkgD/pages/take_address/take_address">收货地址</navigator></view>
+  <view><navigator url="/pkgD/pages/safe/safe">安全中心</navigator></view>
+  <view><navigator url="">隐私政策</navigator></view>
+  <view><navigator url="">用户协议</navigator></view>
+  <view><navigator url="">其他协议</navigator></view>
+</view>

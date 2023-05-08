@@ -1,0 +1,50 @@
+<view class="divAll">
+<view class="shouyin">
+<view><image src="/imgs/paycard (3).png" class="payImg1"></image></view>
+<view>收银台</view>
+</view>
+<view class="order_top">
+<view class="order_detail">
+<view>订单编号</view>
+<view>{{msg}}</view>
+</view>
+<view class="order_detail1">
+<view class="order_price">付款金额</view>
+<view class="pay_money">￥{{msg1}}</view>
+</view>
+</view>
+<view class="divBottom">
+<view class="order_detail">
+<view>在线支付</view>
+</view>
+<view class="order_detail1">
+<view><image src="/imgs/paycard (2).png" class="payImg2"></image><view>微信支付</view></view>
+<view><radio></radio></view>
+</view>
+<view class="order_detail1">
+  <view><image src="/imgs/paycard (1).png" class="payImg3"></image><view>银联在线</view></view>
+  <view><radio disabled="true"></radio></view>
+</view>
+</view>
+</view>
+<view class="pay" catchtap='showInputLayer'>
+<button>立即付款</button>
+</view>
+<!-- 密码输入框 -->
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'><text></text></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{pwdVal.length>i}}'></text>
+            </view>
+        </view>
+        <view class='forget_pwd' catchtap='hidePayLayer'>忘记密码</view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>

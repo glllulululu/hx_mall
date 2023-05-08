@@ -1,0 +1,149 @@
+<view class="divAll">
+  <!-- 商品详情 -->
+  <view wx:for="{{goods}}" wx:key="index" class="viewAllGoods">
+    <view class="viewImg">
+      <image src="/imgs/{{item.imgUrl}}"></image>
+    </view>
+    <view class="viewFont">
+      <!-- 售价 -->
+      <view class="first_line">
+        <view class="outPrice2">销售价￥<text class="outPrice_font">{{item.outPrice2}}</text></view>
+        <view class="outCount">已售{{item.outCount}}件</view>
+      </view>
+      <!-- 商品名称 -->
+      <view class="second_line">
+        <view class="productName">{{item.productName}}{{item.specification}}</view>
+        <view>
+          <image src="/imgs/share.png" class="share"></image>
+        </view>
+      </view>
+      <!-- 规格 -->
+      <view class="third_line">
+        <view class="item.description"><text decode="{{true}}"><text class="fontColor">规格</text>&nbsp;&nbsp;&nbsp;{{item.description}}</text></view>
+        <view class="fontColor1"></view>
+      </view>
+      <view class="fourth_line">
+        <!-- 配送方式 -->
+        <view><text decode="{{true}}"><text class="fontColor">配送</text>&nbsp;&nbsp;&nbsp;商家配送</text></view>
+        <view class="fontColor1"></view>
+      </view>
+    </view>
+  </view>
+  <view class="commentAll">
+    <!-- 用户评价 -->
+    <view wx:for="{{comments}}" wx:key="index" class="viewAllcomments" wx:if="{{index<1}}">
+      <view class="comment_title">
+        <view>用户评价</view>
+        <view class="comment_font" bindtap="godetail" data-info1="{{item.productId}}">100%好评></view>
+      </view>
+      <view class="cid_title">
+        <view class="productCid">
+          <image src="/imgs/{{item.head}}" class="pic_head"></image>{{item.cid}}
+        </view>
+        <view class="productComment_type">评价类型：{{item.comment_type}}</view>
+        <view class="orderTime">{{item.orderTime}}</view>
+      </view>
+      <view class="productComment">{{item.comment}}</view>
+      <view class="boss_reply" hidden="{{isReplay}}">商家回复：{{item.reply}}</view>
+    </view>
+  </view>
+  <!-- 没有用户评价 -->
+  <view wx:for="{{no_comments}}" wx:key="index" class="viewAllno_comments">
+    <view class="no_comment_title"><text>用户评价</text></view>
+    <view class="no_comment">
+      <text>该商品暂无用户评价</text>
+    </view>
+  </view>
+  <!-- 回到店铺首页 -->
+  <view class="goIndex">
+    <view class="div_name">
+      <image src="/imgs/shop_name.png"></image>
+      <view class="shop_name"><text decode="{{true}}">&nbsp;红星小卖部</text></view>
+    </view>
+    <view class="div_index"><button size="mini" bindtap="goback">店铺首页</button></view>
+  </view>
+  <!-- 详情介绍 -->
+  <view class="descript">
+    <view>
+      <image src="/imgs/line_left.png"></image>
+    </view>
+    <view class="desfont">详情介绍</view>
+    <view>
+      <image src="/imgs/line_right.png"></image>
+    </view>
+  </view>
+  <view class="blank">....</view>
+  <!-- 推荐商品 -->
+  <view class="descript salescript">
+    <view>
+      <image src="/imgs/line_left.png"></image>
+    </view>
+    <view class="desfont">推荐商品</view>
+    <view>
+      <image src="/imgs/line_right.png"></image>
+    </view>
+  </view>
+  <view wx:for="{{sales}}" wx:key="index" class="sale" bindtap="gotodetail" data-info3="{{item.productId}}">
+    <view class="sale_img">
+      <image src="/imgs/{{item.imgUrl}}"></image>
+    </view>
+    <view class="sale_name">{{item.productName}}</view>
+    <view class="sale_outPrice">￥{{item.outPrice2}}</view>
+  </view>
+</view>
+<!-- 加入购物车 -->
+<view class="goshopcar">
+  <van-goods-action>
+    <van-goods-action-icon icon="user-o" text="我的" bindtap="gotoMy" />
+    <van-goods-action-icon icon="cart-o" text="购物车" info="{{buycarCount}}"  bindtap="gobuycar" />
+    <van-goods-action-icon icon="wap-home-o" text="首页" bindtap="gotoIndex" />
+    <van-goods-action-button text="加入购物车"  type="warning"  bindtap="addcar" style="width:80%;" />
+    <van-goods-action-button text="立即购买" bindtap="goBuy" />
+  </van-goods-action>
+  <!-- 加入购物车弹出层 -->
+  <van-popup show="{{ show3 }}" round closeable
+  close-icon-position="top-right" position="bottom" custom-style="height: 40%" bind:close="onClose2" wx:for="{{addCount1}}" wx:key="index">
+      <view class="carAll">
+      <view class="car_img">
+        <image src="/imgs/{{item.imgUrl}}"></image>
+      </view>
+      <view class="car_Right">
+      <view class="car_outPrice">销售价￥{{item.outPrice2}}</view>
+      <view class="carStock">库存{{item.stock}}件</view> 
+    </view>
+    </view>
+      <view class="car_bottom">
+      <view class="buyfont">购买数量</view>
+     <view class="buyCount"><view class="{{minusStatus1}}" bindtap="bindMinus1">-</view><input value="{{num1}}" class="car_input" bindchange="bindManual1" /><view class="normal" bindtap="bindPlus1">+</view></view> 
+      </view>
+      <button class="btncar" bindtap="car_Confirm">确认</button>
+</van-popup>
+<!-- 立即购买弹出层 -->
+  <van-popup show="{{ show }}" round position="bottom" custom-style="height:25%" bind:close="onClose">
+    <view class="power_title">
+      <view>
+        <image src="/imgs/shop_name.png" class="power_head"></image>
+      </view>
+      <view class="power_font"><text decode="{{true}}">&nbsp;红星小卖部&nbsp;登录</text></view>
+      <view class="power_close" bindtap="gotoClose"><text>x</text></view>
+    </view>
+    <van-button type="primary" size="large" custom-style="width:85%;height:80rpx;margin-left:50rpx;margin-top:50rpx;" bindtap="onClickShow">
+      授权登录</van-button>
+  </van-popup>
+  <van-popup show="{{ show2 }}" round closeable close-icon-position="top-right" position="bottom" custom-style="height: 40%" bind:close="onClose1" wx:for="{{addCount}}" wx:key="index">
+      <view class="carAll">
+      <view class="car_img">
+        <image src="/imgs/{{item.imgUrl}}"></image>
+      </view>
+      <view class="car_Right">
+      <view class="car_outPrice">销售价￥{{item.outPrice2}}</view>
+      <view class="carStock">库存{{item.stock}}件</view> 
+    </view>
+    </view>
+      <view class="car_bottom">
+      <view class="buyfont">购买数量</view>
+     <view class="buyCount"><view class="{{minusStatus}}" bindtap="bindMinus">-</view><input value="{{num}}" class="car_input" bindchange="bindManual" /><view class="normal" bindtap="bindPlus">+</view></view> 
+      </view>
+      <button class="btncar" bindtap="orderOk">确认</button>
+</van-popup>
+</view>

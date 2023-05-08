@@ -1,0 +1,62 @@
+.container1{
+  width: 100%;
+}
+/* 左侧菜单样式 */
+.left-menu{
+  width: 160rpx;
+  font-size: 29rpx;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+.left-menu-common{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+/* 未选中菜单样式 */
+.left-menu-unselect{
+  color: black;
+  border-bottom: 1px solid pink;
+  background:#F9F9F9;
+}
+/* 选中菜单样式 */
+.left-menu-selected{
+  color: rgb(255,96,0);
+  font-weight: bold;
+  background: #F3F4F6;
+}
+/* 右侧样式 */
+.content{
+  width: 520rpx;
+  margin-left: 210rpx;
+  margin-top: 25rpx;
+  display: flex;
+  justify-content: space-between;
+} 
+.viewImg{
+  width: 240rpx;
+  height:220rpx;
+  border-radius: 5px;
+}
+.viewImg image{
+  width: 240rpx;
+  height:220rpx ;
+  border-radius: 10rpx;
+}
+.viewFont{
+  width: 450rpx;
+  height: 300rpx;
+  margin-left: 30rpx
+}
+.outCount{
+  color:rgb(158,158,158);
+  font-size: 25rpx;
+}
+.outPrice{
+  color:rgb(255,96,0);
+  margin-top: 160rpx;
+  font-weight: bold;
+}
+
+

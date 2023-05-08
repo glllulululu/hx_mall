@@ -1,0 +1,8 @@
+<view>
+    <view class="tar">
+      <textarea model:value="{{content}}" class="textarea" auto-height bindblur="getComment"></textarea>
+    </view>
+    <view>
+      <button bindtap="sendComment">发布评价</button>
+    </view>
+</view>

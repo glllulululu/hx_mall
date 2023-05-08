@@ -1,0 +1,32 @@
+/* 评价列表 */
+.cid_title{
+  display: flex;
+ flex-direction: row;
+ margin-top:50rpx;
+}
+.productComment_type{
+margin-left:20rpx;
+}
+.orderTime{
+  margin-left:45rpx;
+}
+.productComment{
+  margin-top:20rpx;
+}
+.productCid,.productComment_type,.orderTime{
+  color:rgb(117, 113, 113);
+}
+.comments_detail{
+  font-size:30rpx;
+}
+.pic_head{
+  width: 50rpx;
+  height:36rpx;
+}
+.productCid{
+  margin-top: -2rpx;
+}
+.boss_reply{
+  color: rgb(117, 113, 113);
+  padding-top: 18rpx;
+}
